@@ -92,4 +92,3 @@ Diese Struktur darf mit dem Produkt wachsen. Bei einer kleinen Anwendung ist
 Verständlichkeit wichtiger als eine möglichst tiefe Verzeichnishierarchie.
 
 Weitere Regeln stehen in [Konventionen](./conventions.md); die durchgeführte
-Migration ist im [Refactoring-Plan](./refactoring-plan.md) festgehalten.
