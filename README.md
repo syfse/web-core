@@ -18,10 +18,15 @@ npm run build
 ```
 
 Husky runs ESLint on staged JavaScript/JSX files and the test suite before each
-commit. Hooks are installed automatically when dependencies are installed.
+commit. It also validates commit messages against Conventional Commits. Hooks
+are installed automatically when dependencies are installed.
+
+Use messages such as `feat(countdown): show remaining days` or
+`fix(theme): sync browser theme color`. See the
+[commit message conventions](./docs/commit-messages.md).
 
 ## Documentation
 
 - [Project conventions](./docs/conventions.md)
 - [Project structure](./docs/project-structure.md)
-- [Husky setup](./docs/husky-setup-plan.md)
+- [Commit message conventions](./docs/commit-messages.md)

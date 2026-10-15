@@ -101,6 +101,8 @@ betroffenen Bereich konsistent umgesetzt werden.
 ## Dokumentation und Änderungen
 
 - Architektur, Konventionen und langfristige Pläne gehören nach `docs/`.
+- Commit-Nachrichten folgen Conventional Commits; Details und Beispiele stehen
+  in [Commit-Nachrichten](./commit-messages.md).
 - README dient als schneller Einstieg: Zweck, Installation, Befehle und Links
   zu ausführlicher Dokumentation.
 - Neue Abhängigkeiten müssen einen konkreten Bedarf erfüllen und in
