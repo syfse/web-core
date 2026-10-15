@@ -1,0 +1,23 @@
+:root {
+  --page: #f6f4ef;
+  --surface: #fffefa;
+  --text: #292b29;
+  --muted: #777a73;
+  --line: #e7e4dc;
+  --accent: #647765;
+  --font-display: Georgia, serif;
+
+  color-scheme: light;
+  background: var(--page);
+  color: var(--text);
+
+  &[data-theme='dark'] {
+    --page: #202522;
+    --surface: #292f2b;
+    --text: #f0f0e8;
+    --muted: #a4aaa2;
+    --line: #3b433d;
+    --accent: #b6c9b3;
+    color-scheme: dark;
+  }
+}

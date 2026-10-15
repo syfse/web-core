@@ -1,4 +1,5 @@
-@use './tokens' as tokens;
+@use 'tokens' as tokens;
+@use 'themes';
 
 :root {
   font-family: tokens.$font-body;
@@ -8,7 +9,6 @@
   -moz-osx-font-smoothing: grayscale;
   font-optical-sizing: auto;
   font-weight: 400;
-  background: #f6f4ef;
 }
 
 * {
@@ -19,9 +19,21 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  background: var(--page);
+  color: var(--text);
+  transition: background-color 220ms ease, color 220ms ease;
 }
 
 button,
 a {
   -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

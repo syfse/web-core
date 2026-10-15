@@ -12,7 +12,13 @@
     padding: 16px 20px;
   }
 
-  &__header {}
+  &__header {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
 
   &__body {
     padding: 20px;
