@@ -1,0 +1,38 @@
+.card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--text);
+  transition: background-color 220ms ease, border-color 220ms ease;
+
+  &__header,
+  &__footer,
+  &__subfooter {
+    padding: 16px 20px;
+  }
+
+  &__header {}
+
+  &__body {
+    padding: 20px;
+  }
+
+  &__footer {
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  &__subfooter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid var(--line);
+    background: var(--page);
+  }
+
+  p {
+    margin: 0;
+  }
+}
