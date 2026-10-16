@@ -1,17 +1,12 @@
-FROM node:slim
-
+FROM node:slim AS build
 WORKDIR /app
-
 COPY package*.json ./
-
 RUN npm install
-
 COPY . .
-
-# Build webapp
 RUN npm run build
 
-# Delete everything except the dist folder
-RUN find . -maxdepth 1 ! -name 'dist' -exec rm -rf {} +
+FROM nginx:alpine
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist /usr/share/nginx/html
 
 EXPOSE 3000
