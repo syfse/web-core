@@ -27,6 +27,7 @@ Use messages such as `feat(countdown): show remaining days` or
 
 ## Documentation
 
+- [UI component list](./docs/components.md)
 - [Project conventions](./docs/conventions.md)
 - [Project structure](./docs/project-structure.md)
 - [Commit message conventions](./docs/commit-messages.md)

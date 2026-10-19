@@ -1,0 +1,150 @@
+.form-field {
+  display: grid;
+  gap: 8px;
+  color: var(--text);
+
+  &__label {
+    font-size: 14px;
+    font-weight: 650;
+  }
+
+  &__required {
+    color: #a63e36;
+  }
+
+  &__control {
+    min-width: 0;
+  }
+
+  &__input,
+  &__select,
+  &__textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-size: 15px;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+
+    &:focus-visible {
+      border-color: var(--accent);
+      outline: 3px solid color-mix(in srgb, var(--accent) 30%, transparent);
+      outline-offset: 1px;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
+    &::placeholder {
+      color: var(--muted);
+      opacity: 1;
+    }
+  }
+
+  &__textarea {
+    min-height: 112px;
+    resize: vertical;
+  }
+
+  &__password-control {
+    position: relative;
+
+    .form-field__input {
+      padding-right: 76px;
+    }
+  }
+
+  &__password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    min-height: 34px;
+    padding: 6px 10px;
+    transform: translateY(-50%);
+    font-size: 12px;
+
+    &.button:hover:not(:disabled) {
+      transform: translateY(-50%);
+    }
+  }
+
+  &__checkbox {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: var(--accent);
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--accent) 35%, transparent);
+      outline-offset: 3px;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__hint,
+  &__error {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  &__hint {
+    color: var(--muted);
+  }
+
+  &__error {
+    color: #a63e36;
+  }
+
+  &--invalid {
+    .form-field__input,
+    .form-field__select,
+    .form-field__textarea {
+      border-color: #a63e36;
+    }
+  }
+
+  &--inline {
+    grid-template-columns: 18px minmax(0, 1fr);
+    align-items: start;
+    column-gap: 10px;
+
+    .form-field__control {
+      grid-column: 1;
+      grid-row: 1;
+      padding-top: 1px;
+    }
+
+    .form-field__label {
+      grid-column: 2;
+      grid-row: 1;
+      font-weight: 400;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+
+    .form-field__hint,
+    .form-field__error {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-field {
+    &__input,
+    &__select,
+    &__textarea {
+      transition: none;
+    }
+  }
+}
