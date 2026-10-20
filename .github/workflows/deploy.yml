@@ -34,6 +34,24 @@ jobs:
           token: ${{ secrets.DEPLOY_REPOSITORY_TOKEN }}
           path: deploy-target
 
+      - name: Verify deployment token
+        env:
+          GH_TOKEN: ${{ secrets.DEPLOY_REPOSITORY_TOKEN }}
+          DEPLOY_REPO: ${{ vars.DEPLOY_REPOSITORY }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::DEPLOY_REPOSITORY_TOKEN is empty!"
+            exit 1
+          fi
+
+          echo "Checking repository: $DEPLOY_REPO"
+
+          curl --fail-with-body -sS \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$DEPLOY_REPO" \
+            | jq '{full_name, private, permissions}'
+
       - name: Replace deployment branch contents with build
         run: |
           find deploy-target -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
