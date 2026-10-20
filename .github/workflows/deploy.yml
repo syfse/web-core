@@ -1,0 +1,53 @@
+name: Build and Deploy to Repository
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Checkout deployment repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.DEPLOY_REPOSITORY }}
+          ref: ${{ vars.DEPLOY_BRANCH || 'main' }}
+          token: ${{ secrets.DEPLOY_REPOSITORY_TOKEN }}
+          path: deploy-target
+
+      - name: Replace deployment branch contents with build
+        run: |
+          find deploy-target -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a dist/. deploy-target/
+
+      - name: Commit and push build
+        working-directory: deploy-target
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all
+          if git diff --cached --quiet; then
+            echo "No build changes to publish."
+            exit 0
+          fi
+          git commit -m "Deploy ${GITHUB_SHA}"
+          git push origin "HEAD:${{ vars.DEPLOY_BRANCH || 'main' }}"
