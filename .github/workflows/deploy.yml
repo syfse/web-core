@@ -26,14 +26,6 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Checkout deployment repository
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ vars.DEPLOY_REPOSITORY }}
-          ref: ${{ vars.DEPLOY_BRANCH || 'main' }}
-          token: ${{ secrets.DEPLOY_REPOSITORY_TOKEN }}
-          path: deploy-target
-
       - name: Verify deployment token
         env:
           GH_TOKEN: ${{ secrets.DEPLOY_REPOSITORY_TOKEN }}
@@ -51,6 +43,14 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/$DEPLOY_REPO" \
             | jq '{full_name, private, permissions}'
+
+      - name: Checkout deployment repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.DEPLOY_REPOSITORY }}
+          ref: ${{ vars.DEPLOY_BRANCH || 'main' }}
+          token: ${{ secrets.DEPLOY_REPOSITORY_TOKEN }}
+          path: deploy-target
 
       - name: Replace deployment branch contents with build
         run: |
