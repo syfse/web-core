@@ -8,7 +8,7 @@ function App() {
     <Layout>
       <section className="welcome">
         <p className="welcome__eyebrow">The right thing to do</p>
-        <h1>See Your Fucking<br />Server Everywhere</h1>
+        <h1>See Your F***ing<br />Server Everywhere</h1>
         <p className="welcome__description">
           Syfse is a server capacity sharing platform that allows you to share
           your server capacity with others to play games. Get paid for sharing
