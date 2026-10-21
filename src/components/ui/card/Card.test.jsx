@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
+import { PrimaryButton } from '../button/Button'
 import { Card, CardBody, CardFooter, CardHeader, CardSubfooter } from './Card'
 
 describe('Card components', () => {
@@ -10,7 +11,7 @@ describe('Card components', () => {
         <CardBody>Content</CardBody>
         <CardFooter>Footer text</CardFooter>
         <CardSubfooter>
-          <button type="button">Action</button>
+          <PrimaryButton>Action</PrimaryButton>
         </CardSubfooter>
       </Card>,
     )

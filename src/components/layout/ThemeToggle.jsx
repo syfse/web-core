@@ -1,13 +1,13 @@
 import { useTheme } from '../../app/providers/useTheme'
+import { SecondaryButton } from '../ui/button/Button'
 
 function ThemeToggle() {
   const { currentTheme, setCurrentTheme } = useTheme()
   const nextTheme = currentTheme === 'light' ? 'dark' : 'light'
 
   return (
-    <button
+    <SecondaryButton
       className="theme-toggle"
-      type="button"
       onClick={() => setCurrentTheme(nextTheme)}
       aria-label={`Switch to ${nextTheme} theme`}
       aria-pressed={currentTheme === 'dark'}
@@ -15,7 +15,7 @@ function ThemeToggle() {
       <span className="theme-toggle__icon" aria-hidden="true">
         {currentTheme === 'light' ? '☾' : '☼'}
       </span>
-    </button>
+    </SecondaryButton>
   )
 }
 
