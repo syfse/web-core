@@ -5,7 +5,7 @@ Sie orientieren sich an React, Vite und der kleinen Größe dieses Projekts.
 Abweichungen sind möglich, wenn sie einen konkreten Vorteil haben und im
 betroffenen Bereich konsistent umgesetzt werden.
 
-## React und JavaScript
+## React und TypeScript
 
 - Komponenten sind Funktionen und verwenden PascalCase: `Countdown`,
   `ThemeProvider`, `CardHeader`.
@@ -24,6 +24,11 @@ betroffenen Bereich konsistent umgesetzt werden.
   nicht in den Renderpfad mit Seiteneffekten.
 - Vorhandene ESLint-Regeln sind einzuhalten. Fehler werden nicht durch
   pauschale Deaktivierungen umgangen.
+- Anwendungs- und Testcode werden mit TypeScript geschrieben. React-Komponenten
+  verwenden `.tsx`, typfreie Module und Hooks `.ts`.
+- TypeScript wird mit `strict` geprüft. Props, Context-Werte und öffentliche
+  Hilfsfunktionen erhalten explizite, möglichst präzise Typen; `any` und
+  Type-Casts werden nur mit nachvollziehbarer Begründung verwendet.
 - Fachliche Hilfslogik erhält Tests für Grenzfälle; React-Komponenten werden
   über sichtbares Verhalten und zugängliche Rollen/Labels getestet.
 
@@ -43,10 +48,12 @@ betroffenen Bereich konsistent umgesetzt werden.
 
 ## Benennung und Dateien
 
-- React-Komponenten und ihre Tests: `PascalCase.jsx` sowie
-  `PascalCase.test.jsx`, zum Beispiel `ThemeProvider.jsx`.
-- Hooks und normale JavaScript-Module: `camelCase.js`, zum Beispiel
-  `useTheme.js` oder `countdownConfig.js`; Tests heißen `camelCase.test.js`.
+- React-Komponenten und ihre Tests: `PascalCase.tsx` sowie
+  `PascalCase.test.tsx`, zum Beispiel `ThemeProvider.tsx`.
+- Hooks und normale TypeScript-Module verwenden `camelCase.ts`, zum Beispiel
+  `useTheme.ts` oder `countdownConfig.ts`; Tests heißen `camelCase.test.ts`.
+- JavaScript/JSX bleibt für Tool-Konfigurationen zulässig, solange deren
+  Tooling nicht auf TypeScript umgestellt ist.
 - Sass-Dateien verwenden den PascalCase-Komponentennamen (`Card.scss`) und
   liegen bei der Komponente. Gemeinsame Stylesheets verwenden beschreibende
   Kleinschreibung, zum Beispiel `global.scss`.
@@ -118,6 +125,7 @@ ausführen:
 
 ```sh
 npm run lint
+npm run typecheck
 npm test
 npm run build
 ```

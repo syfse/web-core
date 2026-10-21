@@ -1,6 +1,7 @@
 # Syfse Web
 
-The Syfse web client is a React application built with Vite and Sass.
+The Syfse web client is a React and TypeScript application built with Vite and
+Sass.
 
 ## Getting started
 
@@ -13,13 +14,14 @@ npm run dev
 
 ```sh
 npm run lint
+npm run typecheck
 npm test
 npm run build
 ```
 
-Husky runs ESLint on staged JavaScript/JSX files and the test suite before each
-commit. It also validates commit messages against Conventional Commits. Hooks
-are installed automatically when dependencies are installed.
+Husky runs ESLint on staged JavaScript/TypeScript files and the test suite
+before each commit. It also validates commit messages against Conventional
+Commits. Hooks are installed automatically when dependencies are installed.
 
 Use messages such as `feat(countdown): show remaining days` or
 `fix(theme): sync browser theme color`. See the
