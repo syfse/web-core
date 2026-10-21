@@ -1,0 +1,34 @@
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+
+  &__dot {
+    width: 9px;
+    height: 9px;
+    flex: 0 0 9px;
+    border-radius: 50%;
+    background: var(--status-color);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--status-color) 16%, transparent);
+  }
+
+  &--online {
+    --status-color: #4d875a;
+  }
+
+  &--offline {
+    --status-color: #858982;
+  }
+
+  &--pending {
+    --status-color: #a87929;
+  }
+
+  &--maintenance {
+    --status-color: #52749a;
+  }
+}
