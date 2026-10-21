@@ -1,5 +1,6 @@
 import { useTheme } from '../../app/providers/useTheme'
 import { SecondaryButton } from '../ui/button/Button'
+import { Sun, Moon } from 'lucide-react';
 
 function ThemeToggle() {
   const { currentTheme, setCurrentTheme } = useTheme()
@@ -13,7 +14,7 @@ function ThemeToggle() {
       aria-pressed={currentTheme === 'dark'}
     >
       <span className="theme-toggle__icon" aria-hidden="true">
-        {currentTheme === 'light' ? '☾' : '☼'}
+        {currentTheme === 'light' ? <Sun /> : <Moon />}
       </span>
     </SecondaryButton>
   )
