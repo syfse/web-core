@@ -1,16 +1,22 @@
 name: Build and Push Docker Image to GHCR
 
 on:
+  workflow_run:
+      workflows: [CI]
+      types:
+        - completed
   pull_request:
     branches: [ "main" ]
 
   push:
-    branches: [ "main", "develop" ]
+    branches: [ "main" ]
 
 jobs:
   build-and-push:
     
     runs-on: ubuntu-latest
+    
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     permissions:
       contents: read
