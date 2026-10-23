@@ -14,6 +14,7 @@
   &__content {
     display: flex;
     flex: 1;
+    justify-content: center;
   }
 }
 
@@ -28,6 +29,22 @@
 
 .site-header {
   padding: 28px 0;
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    &__link {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 220ms ease;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
 
   &__brand {
     display: inline-flex;
