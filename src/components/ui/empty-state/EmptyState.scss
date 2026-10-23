@@ -1,0 +1,23 @@
+.empty-state {
+  color: var(--text);
+
+  &__title {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  &__description {
+    margin: 0 0 16px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  &__action {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
