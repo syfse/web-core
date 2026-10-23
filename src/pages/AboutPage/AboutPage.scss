@@ -3,6 +3,27 @@
   margin: auto;
   padding: 72px 0 88px;
 
+  &__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 220ms ease;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+
   h1 {
     margin: 0 0 32px;
     font-family: var(--font-display);
