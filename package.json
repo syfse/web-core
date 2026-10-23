@@ -13,9 +13,11 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "framer-motion": "^14.6.0",
     "lucide-react": "^1.60.0",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.3",

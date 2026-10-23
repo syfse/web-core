@@ -1,0 +1,39 @@
+.github-user {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 220ms ease;
+
+  &:hover {
+    border-color: var(--accent);
+  }
+
+  &__avatar {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 50%;
+  }
+
+  &__info {
+    min-width: 0;
+  }
+
+  &__name {
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  &__bio {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}

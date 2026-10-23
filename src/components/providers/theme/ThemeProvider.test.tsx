@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { ThemeToggle } from '../../components/layout/ThemeToggle'
+import { ThemeToggle } from '../../layout/ThemeToggle'
 import { ThemeProvider } from './ThemeProvider'
 import { useTheme } from './useTheme'
 
