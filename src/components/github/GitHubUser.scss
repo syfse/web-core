@@ -21,8 +21,17 @@
     border-radius: 50%;
   }
 
+  &__avatar-skeleton {
+    flex-shrink: 0;
+    border-radius: 50%;
+  }
+
   &__info {
+    display: flex;
+    flex: 1;
     min-width: 0;
+    flex-direction: column;
+    gap: 6px;
   }
 
   &__name {
@@ -31,9 +40,20 @@
   }
 
   &__bio {
-    margin: 4px 0 0;
+    margin: 0;
     color: var(--muted);
     font-size: 14px;
     line-height: 1.5;
+  }
+
+  &__link {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
