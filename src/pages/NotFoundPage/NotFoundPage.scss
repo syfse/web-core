@@ -1,0 +1,33 @@
+.not-found {
+  display: flex;
+  width: min(100%, 640px);
+  margin: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 72px 0 88px;
+
+  &__code {
+    margin: 0 0 20px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(44px, 7vw, 72px);
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+
+  &__description {
+    margin: 20px 0 32px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
